@@ -17,6 +17,10 @@ public class Department {
         this.students_in_department=new ArrayList<>();
 
     }
+
+
+
+    
     public void add_student_to_department(Student student) {
         if (!students_in_department.contains(student)) {
             if (student.getDepartment() == null) {
