@@ -23,6 +23,7 @@ public class Main {
         Student s3=new Student(2,"Mona","d","2","w",LocalDate.of(2,2,2),2004,AI);
         Instructor i1=new Instructor(2,"Zaki","tunisia","010023444");
         Instructor i2=new Instructor(2,"Mahmoud","tunisia","010023444");
+        System.out.println("tessssst");
 //        System.out.println("normal assign");
 //        courseManagement cm=new courseManagement();
 //        cm.assignClassRoom(c1,Classroom.hallone);
