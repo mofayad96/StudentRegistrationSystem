@@ -1,5 +1,5 @@
 package com.fayad;
-
+import java.util.Collections;
 import javax.swing.*;
 import java.time.LocalDate;
 import java.util.*;
@@ -17,6 +17,7 @@ public class Student  {
     private int FinishedHours;
     private Department department;
     private TimePeriod timePeriod;
+
 
     private Map<Course,Grade> attemptedCourses;//passed + failed
     public Student(int id, String name, String address, String phoneNum, String semester, LocalDate DateOfBirth, int EnrolledYear,Department department)
@@ -92,7 +93,7 @@ public class Student  {
         }
         for(Course course1:this.enrolledCourses)
         {
-            if(course1.getTimePeriod()==course.getTimePeriod()&&course1.getSemester()==course.getSemester()&&course.getDayOfWeek()!=null&&course1.getDayOfWeek()!=null&&course1.getDayOfWeek()==course.getDayOfWeek())
+            if(course1.getTimePeriod()==course.getTimePeriod()&&course1.getSemester()==course.getSemester()&&course.getDayOfWeek()!=null&&!Collections.disjoint(course1.getDayOfWeek(),course.getDayOfWeek()))
             {
                 System.out.println("Cant enroll in this course that time period is already occupied by "+course1.getCourseName());
                 return;

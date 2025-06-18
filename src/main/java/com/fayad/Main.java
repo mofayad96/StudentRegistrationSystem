@@ -6,10 +6,10 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        Course c1=new Course(3,"math","spring",22,null,Semester.SPRING,TimePeriod.FirstPeriod,null,null,Arrays.asList(DayOfWeek.THURSDAY,DayOfWeek.MONDAY));
-        Course oopcourse=new Course(4,"math","Spring",222,null,Semester.SPRING,TimePeriod.FirstPeriod,null,null,Arrays.asList(DayOfWeek.THURSDAY,DayOfWeek.MONDAY));
+        Course c1=new Course(3,"math","spring",22,null,Semester.SPRING,TimePeriod.FirstPeriod,null,null,Arrays.asList(DayOfWeek.SUNDAY,DayOfWeek.MONDAY));
+        Course oopcourse=new Course(4,"oop ","Spring",222,null,Semester.SPRING,TimePeriod.FirstPeriod,null,null,Arrays.asList(DayOfWeek.THURSDAY,DayOfWeek.MONDAY));
         Course c3=new Course(3,"Science","spring",23,null,Semester.SPRING,TimePeriod.FirstPeriod,null,null,Arrays.asList(DayOfWeek.THURSDAY,DayOfWeek.MONDAY));
-        Course c4=new Course(3,"intro to computer system","winter",24,null,Semester.WINTER,TimePeriod.SecondPeriod,null,null,null);
+        Course c4=new Course(3,"intro to computer system","winter",24,null,Semester.WINTER,TimePeriod.SecondPeriod,null,null,Arrays.asList(DayOfWeek.FRIDAY));
         Course test=new Course(3," systems","winter",24,new ArrayList<>(Arrays.asList(c1,oopcourse)),Semester.WINTER,TimePeriod.SecondPeriod,null,null,null);
         Course c5=new Course(3,"intro to systems","winter",24,new ArrayList<>(Arrays.asList(c1,c4)),Semester.SPRING, TimePeriod.ThirdPeriod,null,null,null);
         Department CS=new Department(1123,"CyberSecuity");
@@ -23,7 +23,7 @@ public class Main {
         Student s3=new Student(2,"Mona","d","2","w",LocalDate.of(2,2,2),2004,AI);
         Instructor i1=new Instructor(2,"Zaki","tunisia","010023444");
         Instructor i2=new Instructor(2,"Mahmoud","tunisia","010023444");
-        System.out.println("tessssst");
+        //System.out.println("tessssst");
 //        System.out.println("normal assign");
 //        courseManagement cm=new courseManagement();
 //        cm.assignClassRoom(c1,Classroom.hallone);
@@ -54,30 +54,30 @@ public class Main {
 //        //s1.completeCourse(c4,Grade.A);
 //        s1.completeCourse(oopcourse,Grade.A);
 //        s1.enroll(test);
-
-        System.out.println(i1.getTeachingCourses());
-        System.out.println(c1.getInstructor());
-        c1.associateInstructor(i1);
-        System.out.println(i1.getTeachingCourses());
-        System.out.println(c1.getInstructor());
-
-        System.out.println("=--------");
-        System.out.println("another instructor teaching this course");
-        c1.associateInstructor(i2);
-        System.out.println("associate same instructor");
-        c1.associateInstructor(i1);
-        System.out.println("associate with same time periods courses");
-        c3.associateInstructor(i1);
-        oopcourse.associateInstructor(i1);
-        System.out.println("----");
-        System.out.println(i1.getTeachingCourses());
-        System.out.println("----");
-        System.out.println(i2.getTeachingCourses());
-        System.out.println("----");
-        System.out.println(c1.getInstructor());
-        System.out.println("----");
-        oopcourse.associateInstructor(i2);
-        System.out.println(oopcourse.getInstructor());
+//
+//        System.out.println(i1.getTeachingCourses());
+//        System.out.println(c1.getInstructor());
+//        c1.associateInstructor(i1);
+//        System.out.println(i1.getTeachingCourses());
+//        System.out.println(c1.getInstructor());
+//
+//        System.out.println("=--------");
+//        System.out.println("another instructor teaching this course");
+//        c1.associateInstructor(i2);
+//        System.out.println("associate same instructor");
+//        c1.associateInstructor(i1);
+//        System.out.println("associate with same time periods courses");
+//        c3.associateInstructor(i1);
+//        oopcourse.associateInstructor(i1);
+//        System.out.println("----");
+//        System.out.println(i1.getTeachingCourses());
+//        System.out.println("----");
+//        System.out.println(i2.getTeachingCourses());
+//        System.out.println("----");
+//        System.out.println(c1.getInstructor());
+//        System.out.println("----");
+//        oopcourse.associateInstructor(i2);
+//        System.out.println(oopcourse.getInstructor());
 
 
 //        Department cs = new Department(1, "CS");
@@ -113,9 +113,9 @@ public class Main {
 //        System.out.println("CS Students"+CS.getStudents_in_department());
 //        //        s1.enroll(c1);
 ////
-//        s1.enroll(c2);
-//        s1.enroll(c7);
-//        s1.enroll(c4);
+       s1.enroll(c1);
+       s1.enroll(oopcourse);
+       s1.enroll(c4);
 //        s1.completecourse(c7,Grade.A);
 //        s1.completecourse(c1,Grade.F);
 //        s1.completecourse(c2,Grade.B);

@@ -83,8 +83,8 @@ public class Course {
             if(course1.getSemester() == this.getSemester() &&
                     this.getDayOfWeek() != null &&
                     course1.getDayOfWeek() != null &&
-                    !Collections.disjoint(course1.getDayOfWeek(), this.getDayOfWeek()) &&
-                    course1.getTimePeriod() == this.getTimePeriod()) {
+                    course1.getTimePeriod() == this.getTimePeriod()&&
+                    !Collections.disjoint(course1.getDayOfWeek(), this.getDayOfWeek()) ) {
 
                 System.out.println("Cannot assign instructor to this course. Time conflict with: " + course1.getCourseName());
                 return;
