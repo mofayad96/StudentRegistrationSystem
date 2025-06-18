@@ -92,7 +92,7 @@ public class Student  {
         }
         for(Course course1:this.enrolledCourses)
         {
-            if(course1.getTimePeriod()==course.getTimePeriod()&&course1.getSemester()==course.getSemester())
+            if(course1.getTimePeriod()==course.getTimePeriod()&&course1.getSemester()==course.getSemester()&&course.getDayOfWeek()!=null&&course1.getDayOfWeek()!=null&&course1.getDayOfWeek()==course.getDayOfWeek())
             {
                 System.out.println("Cant enroll in this course that time period is already occupied by "+course1.getCourseName());
                 return;
