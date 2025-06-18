@@ -15,7 +15,7 @@ public class Course {
     private TimePeriod timePeriod;
     private Instructor instructor;
     private Classroom classroom;
-    private int studentsInCourse=0;
+    private int studentsInCourse;
 
 
     private static List<Course> AvailableCourses=new ArrayList<>();

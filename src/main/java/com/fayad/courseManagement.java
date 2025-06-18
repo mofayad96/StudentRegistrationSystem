@@ -7,7 +7,6 @@ public class courseManagement {
 
     public void enroll(Student student,Course course) {
         boolean missingPrerequisite = false;
-
         ArrayList<String> missing = new ArrayList<>();
         if (course.getPreRequisite() != null) {
             for (Course pre : course.getPreRequisite()) {
@@ -48,11 +47,6 @@ public class courseManagement {
 
         System.out.println("Enrolled in " + course.getCourseName() + " successfully");
     }
-
-
-
-
-
     public void assignClassRoom(Course course,Classroom classroom)
     {
         coursesinhall.putIfAbsent(classroom,new ArrayList<>());

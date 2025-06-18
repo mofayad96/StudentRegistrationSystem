@@ -16,9 +16,7 @@ public class Student  {
     private int FinishedHours;
     private Department department;
     private TimePeriod timePeriod;
-
-
-
+    private double GPA;
     private Map<Course,Grade> attemptedCourses;//passed + failed
     public Student(int id, String name, String address, String phoneNum, String semester, LocalDate DateOfBirth, int EnrolledYear,Department department)
     {
@@ -35,34 +33,6 @@ public class Student  {
         this.department = department;
         department.students_in_department.add(this);
     }
-
-
-
-    public void completeCourse(Course course,Grade grade)
-    {
-
-        if(this.getEnrolledCourses().contains(course)&& grade.isPassing())
-        {
-            this.getEnrolledCourses().remove(course);
-            this.failedCourses.remove(course);
-            this.completedCourse.put(course,grade);
-            this.attemptedCourses.put(course,grade);
-            this.setFinishedHours(this.getFinishedHours()+course.getCredits());
-            course.setGrade(grade);
-            System.out.println("completed "+course.getCourseName()+" with grade "+course.getGrade());
-        }else if(grade==Grade.F&&!failedCourses.contains(course))
-        {
-            this.getAttemptedCourses().put(course,grade);
-            this.enrolledCourses.remove(course);
-            course.setGrade(grade);
-            this.failedCourses.add(course);
-            System.out.println("this course is not completed re attempt in future ");
-        }else  {
-            System.out.println("this course is not completed");
-
-        }
-    }
-
     public int getId() {
         return id;
     }
@@ -78,6 +48,8 @@ public class Student  {
     public void setName(String name) {
         this.name = name;
     }
+
+
 
     public String getAddress() {
         return address;
@@ -173,9 +145,6 @@ public class Student  {
     public void setTimePeriod(TimePeriod timePeriod) {
         this.timePeriod = timePeriod;
     }
-
-
-
     @Override
     public String toString() {
         return getName();
