@@ -8,10 +8,10 @@ public class Main {
     public static void main(String[] args) {
         Course c1=new Course(3,"math","spring",22,null,Semester.SPRING,TimePeriod.FirstPeriod,null,Classroom.Room_101,Arrays.asList(DayOfWeek.SUNDAY,DayOfWeek.MONDAY));
         Course oopcourse=new Course(4,"oop ","Spring",222,null,Semester.SPRING,TimePeriod.FirstPeriod,null,Classroom.UNASSIGNED,Arrays.asList(DayOfWeek.THURSDAY,DayOfWeek.MONDAY));
-        Course c3=new Course(3,"Science","spring",23,null,Semester.SPRING,TimePeriod.FirstPeriod,null,Classroom.UNASSIGNED,Arrays.asList(DayOfWeek.THURSDAY,DayOfWeek.MONDAY));
+        Course c3=new Course(3,"Science","spring",23,null,Semester.SPRING,TimePeriod.SecondPeriod,null,Classroom.Room_103,Arrays.asList(DayOfWeek.THURSDAY,DayOfWeek.MONDAY));
         Course c4=new Course(3,"intro to computer system","winter",24,null,Semester.WINTER,TimePeriod.SecondPeriod,null,Classroom.UNASSIGNED,Arrays.asList(DayOfWeek.FRIDAY));
         Course test=new Course(3," systems","winter",24,new ArrayList<>(Arrays.asList(c1,oopcourse)),Semester.WINTER,TimePeriod.SecondPeriod,null,Classroom.UNASSIGNED,null);
-        Course c5=new Course(3,"intro to systems","winter",24,new ArrayList<>(Arrays.asList(c1,c4)),Semester.SPRING, TimePeriod.ThirdPeriod,null,Classroom.UNASSIGNED,null);
+        Course c5=new Course(3,"intro to systems","winter",24,null,Semester.SPRING, TimePeriod.ThirdPeriod,null,Classroom.Room_101,null);
         Department CS=new Department(1123,"CyberSecuity");
         Department AI=new Department(1123,"AI");
 
@@ -115,9 +115,17 @@ public class Main {
 //        System.out.println("CS Students"+CS.getStudents_in_department());
 //        //        s1.enroll(c1);
         cm.enroll(s4,c1);
-        cm.enroll(s2,c1);
-        cm.enroll(s1,c1);
-        cm.enroll(s3,c1);
+        cm.enroll(s4,c5);
+        cm.enroll(s4,c3);
+//        cm.enroll(s4,c1);
+//        cm.enroll(s1,c1);
+        StudentManagement sm=new StudentManagement();
+        sm.completeCourse(s4,c1,Grade.A);
+        sm.completeCourse(s4,c5,Grade.B);
+        sm.completeCourse(s4,c3,Grade.A);
+        System.out.println(sm.CGPA(s4));
+        sm.studentTranscript(s4);
+        //cm.enroll(s3,c1);
         //s4.enroll(c1);
         //s3.enroll(c1);
        //s1.enroll(c1);
@@ -125,7 +133,7 @@ public class Main {
        // System.out.println(s2.getEnrolledCourses());
        //s1.enroll(oopcourse);
        //s1.enroll(c4);
-        System.out.println(c1.getStudentsInCourse());
+        //System.out.println(c1.getStudentsInCourse());
         //System.out.println(c1.getClassroom().getCapacityOfHall());
 
 //        s1.completecourse(c7,Grade.A);
