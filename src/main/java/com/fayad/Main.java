@@ -1,15 +1,17 @@
 package com.fayad;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        Course c1=new Course(3,"math","spring",22,null,Semester.SPRING,TimePeriod.FirstPeriod);
-        Course c2=new Course(4,"oop","spring",223,null,Semester.SUMMER,TimePeriod.FourthPeriod);
-        Course c3=new Course(3,"Science","spring",23,null,Semester.AUTUMAN,TimePeriod.FifthPeriod);
-        Course c4=new Course(3,"intro to computer system","winter",24,null,Semester.WINTER,TimePeriod.SecondPeriod);
-        Course c5=new Course(3,"intro to systems","winter",24,new ArrayList<>(Arrays.asList(c1,c4)),Semester.SPRING, TimePeriod.ThirdPeriod);
+        Course c1=new Course(3,"math","spring",22,null,Semester.SPRING,TimePeriod.FirstPeriod,null,null,Arrays.asList(DayOfWeek.THURSDAY,DayOfWeek.MONDAY));
+        Course oopcourse=new Course(4,"math","Spring",222,null,Semester.SPRING,TimePeriod.FirstPeriod,null,null,Arrays.asList(DayOfWeek.THURSDAY,DayOfWeek.MONDAY));
+        Course c3=new Course(3,"Science","spring",23,null,Semester.SPRING,TimePeriod.FirstPeriod,null,null,Arrays.asList(DayOfWeek.THURSDAY,DayOfWeek.MONDAY));
+        Course c4=new Course(3,"intro to computer system","winter",24,null,Semester.WINTER,TimePeriod.SecondPeriod,null,null,null);
+        Course test=new Course(3," systems","winter",24,new ArrayList<>(Arrays.asList(c1,oopcourse)),Semester.WINTER,TimePeriod.SecondPeriod,null,null,null);
+        Course c5=new Course(3,"intro to systems","winter",24,new ArrayList<>(Arrays.asList(c1,c4)),Semester.SPRING, TimePeriod.ThirdPeriod,null,null,null);
         Department CS=new Department(1123,"CyberSecuity");
         Department AI=new Department(1123,"AI");
 
@@ -21,16 +23,62 @@ public class Main {
         Student s3=new Student(2,"Mona","d","2","w",LocalDate.of(2,2,2),2004,AI);
         Instructor i1=new Instructor(2,"Zaki","tunisia","010023444");
         Instructor i2=new Instructor(2,"Mahmoud","tunisia","010023444");
-        i1.associate_with_department(AI);
-        i1.associate_with_department(CS);
-        i2.associate_with_department(CS);
-        System.out.println(i1.getWork_in_departments());
-////        d1.add_student_to_department(s1); // tmam
-////        d2.add_student_to_department(s1);// added to ai
-////        DepartmentManagement.move_student_to_another_department(s1,d1,d2);
-////        DepartmentManagement.remove_instructor_from_department(i1,d2);
-        i1.remove_work_in_department(AI);
-        System.out.println(i1.getWork_in_departments());
+//        System.out.println("normal assign");
+//        courseManagement cm=new courseManagement();
+//        cm.assignClassRoom(c1,Classroom.hallone);
+//        cm.assignClassRoom(oopcourse,Classroom.hallone);
+//        cm.assignClassRoom(c1,Classroom.hallone);
+
+
+
+//        i1.associate_with_department(AI);
+//        i1.associate_with_department(CS);
+//        i2.associate_with_department(CS);
+//        System.out.println(i1.getWork_in_departments());
+//////        d1.add_student_to_department(s1); // tmam
+//////        d2.add_student_to_department(s1);// added to ai
+//////        DepartmentManagement.move_student_to_another_department(s1,d1,d2);
+//////        DepartmentManagement.remove_instructor_from_department(i1,d2);
+//        i1.remove_work_in_department(AI);
+//        System.out.println(i1.getWork_in_departments());
+
+//        s1.enroll(c4);
+//        s1.enroll(c1);
+//        s1.enroll(test);
+//        s1.enroll(c1);
+//        s1.enroll(oopcourse);
+//        System.out.println(s1.getEnrolledCourses());
+//        System.out.println("------------");
+//        s1.completeCourse(c1,Grade.C);
+//        //s1.completeCourse(c4,Grade.A);
+//        s1.completeCourse(oopcourse,Grade.A);
+//        s1.enroll(test);
+
+        System.out.println(i1.getTeachingCourses());
+        System.out.println(c1.getInstructor());
+        c1.associateInstructor(i1);
+        System.out.println(i1.getTeachingCourses());
+        System.out.println(c1.getInstructor());
+
+        System.out.println("=--------");
+        System.out.println("another instructor teaching this course");
+        c1.associateInstructor(i2);
+        System.out.println("associate same instructor");
+        c1.associateInstructor(i1);
+        System.out.println("associate with same time periods courses");
+        c3.associateInstructor(i1);
+        oopcourse.associateInstructor(i1);
+        System.out.println("----");
+        System.out.println(i1.getTeachingCourses());
+        System.out.println("----");
+        System.out.println(i2.getTeachingCourses());
+        System.out.println("----");
+        System.out.println(c1.getInstructor());
+        System.out.println("----");
+        oopcourse.associateInstructor(i2);
+        System.out.println(oopcourse.getInstructor());
+
+
 //        Department cs = new Department(1, "CS");
 //        Department ai = new Department(2, "AI");
 //

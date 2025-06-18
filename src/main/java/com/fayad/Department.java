@@ -18,9 +18,6 @@ public class Department {
 
     }
 
-
-
-    
     public void add_student_to_department(Student student) {
         if (!students_in_department.contains(student)) {
             if (student.getDepartment() == null) {

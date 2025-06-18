@@ -16,6 +16,7 @@ public class Student  {
     private List<Course> failedCourses;
     private int FinishedHours;
     private Department department;
+    private TimePeriod timePeriod;
 
     private Map<Course,Grade> attemptedCourses;//passed + failed
     public Student(int id, String name, String address, String phoneNum, String semester, LocalDate DateOfBirth, int EnrolledYear,Department department)
@@ -33,6 +34,9 @@ public class Student  {
         this.department = department;
         department.students_in_department.add(this);
     }
+
+
+
     public void completeCourse(Course course,Grade grade)
     {
 
@@ -53,7 +57,7 @@ public class Student  {
             this.failedCourses.add(course);
             System.out.println("this course is not completed re attempt in future ");
         }else  {
-            System.out.println("this course is not whyy completed");
+            System.out.println("this course is not completed");
 
         }
     }
@@ -63,6 +67,11 @@ public class Student  {
     public void enroll(Course course) {
         boolean missingPrerequisite = false;
         ArrayList<String> missing = new ArrayList<>();
+//        if(classroom.getRoom_capacity().get(classroom) <= this.getStudentsinhall())
+//        {
+//            System.out.println("sorry no place in hall");
+//            return;
+//        }
 
         if (course.getPreRequisite() != null) {
             for (Course pre : course.getPreRequisite()) {
@@ -77,18 +86,26 @@ public class Student  {
             System.out.println("Cannot enroll in " + course.getCourseName() + " because you didn't complete: " + missing);
             return;
         }
-
-        if (enrolledCourses.contains(course)) {
+        if (this.enrolledCourses.contains(course)) {
             System.out.println("Already enrolled in " + course.getCourseName());
             return;
         }
+        for(Course course1:this.enrolledCourses)
+        {
+            if(course1.getTimePeriod()==course.getTimePeriod()&&course1.getSemester()==course.getSemester())
+            {
+                System.out.println("Cant enroll in this course that time period is already occupied by "+course1.getCourseName());
+                return;
+            }
+        }
 
-        if (failedCourses.contains(course)) {
-            failedCourses.remove(course);
+        if (this.failedCourses.contains(course)) {
+            this.failedCourses.remove(course);
             System.out.println("Re-attempting " + course.getCourseName());
         }
 
-        enrolledCourses.add(course);
+        this.enrolledCourses.add(course);
+
         System.out.println("Enrolled in " + course.getCourseName() + " successfully");
     }
 

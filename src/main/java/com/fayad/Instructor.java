@@ -8,6 +8,7 @@ public class Instructor  {
     private String address;
     private String phone;
     private ArrayList<Department> work_in_departments;
+    private ArrayList<Course> teachingCourses;
 
     public Instructor(int id,String name,String address,String phone)
     {
@@ -16,6 +17,7 @@ public class Instructor  {
         this.name=name;
         this.phone=phone;
         this.work_in_departments=new ArrayList<>();
+        this.teachingCourses=new ArrayList<>();
     }
     //add to department
     public void associate_with_department(Department department) {
@@ -31,7 +33,7 @@ public class Instructor  {
     }
 
     //remove department
-    public void remove_work_in_department(Department department)
+    public void remove_associated_department(Department department)
     {
         if(work_in_departments.contains(department))
         {
@@ -83,6 +85,15 @@ public class Instructor  {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
+    public ArrayList<Course> getTeachingCourses() {
+        return teachingCourses;
+    }
+
+    public void setTeachingCourses(ArrayList<Course> teachingCourses) {
+        this.teachingCourses = teachingCourses;
+    }
+
     public String toString()
     {
         return getName()+" "+getId();

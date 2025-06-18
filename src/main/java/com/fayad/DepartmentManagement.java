@@ -51,7 +51,7 @@ public class DepartmentManagement  {
         if(instructor.getWork_in_departments().contains(department))
         {
             department.instructors_in_Department.remove(instructor);
-            instructor.remove_work_in_department(department);
+            instructor.remove_associated_department(department);
             System.out.println("Removed "+instructor.getName()+" from "+department.getName()+" successfully");
         }else {
             System.out.println("Instructor is not part of this department: " + department.getName());
