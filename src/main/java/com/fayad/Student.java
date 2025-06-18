@@ -1,6 +1,5 @@
 package com.fayad;
 import java.util.Collections;
-import javax.swing.*;
 import java.time.LocalDate;
 import java.util.*;
 public class Student  {
@@ -17,6 +16,7 @@ public class Student  {
     private int FinishedHours;
     private Department department;
     private TimePeriod timePeriod;
+
 
 
     private Map<Course,Grade> attemptedCourses;//passed + failed
@@ -62,56 +62,6 @@ public class Student  {
 
         }
     }
-
-
-
-    public void enroll(Course course) {
-        boolean missingPrerequisite = false;
-        ArrayList<String> missing = new ArrayList<>();
-//        if(classroom.getRoom_capacity().get(classroom) <= this.getStudentsinhall())
-//        {
-//            System.out.println("sorry no place in hall");
-//            return;
-//        }
-
-        if (course.getPreRequisite() != null) {
-            for (Course pre : course.getPreRequisite()) {
-                if (!this.completedCourse.containsKey(pre)) {
-                    missing.add(pre.getCourseName());
-                    missingPrerequisite = true;
-                }
-            }
-        }
-
-        if (!missing.isEmpty()) {
-            System.out.println("Cannot enroll in " + course.getCourseName() + " because you didn't complete: " + missing);
-            return;
-        }
-        if (this.enrolledCourses.contains(course)) {
-            System.out.println("Already enrolled in " + course.getCourseName());
-            return;
-        }
-        for(Course course1:this.enrolledCourses)
-        {
-            if(course1.getTimePeriod()==course.getTimePeriod()&&course1.getSemester()==course.getSemester()&&course.getDayOfWeek()!=null&&!Collections.disjoint(course1.getDayOfWeek(),course.getDayOfWeek()))
-            {
-                System.out.println("Cant enroll in this course that time period is already occupied by "+course1.getCourseName());
-                return;
-            }
-        }
-
-        if (this.failedCourses.contains(course)) {
-            this.failedCourses.remove(course);
-            System.out.println("Re-attempting " + course.getCourseName());
-        }
-
-        this.enrolledCourses.add(course);
-
-        System.out.println("Enrolled in " + course.getCourseName() + " successfully");
-    }
-
-
-
 
     public int getId() {
         return id;
@@ -216,6 +166,15 @@ public class Student  {
     public void setDateOfBirth(LocalDate dateOfBirth) {
         DateOfBirth = dateOfBirth;
     }
+    public TimePeriod getTimePeriod() {
+        return timePeriod;
+    }
+
+    public void setTimePeriod(TimePeriod timePeriod) {
+        this.timePeriod = timePeriod;
+    }
+
+
 
     @Override
     public String toString() {

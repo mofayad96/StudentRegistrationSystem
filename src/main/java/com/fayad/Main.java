@@ -6,12 +6,12 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        Course c1=new Course(3,"math","spring",22,null,Semester.SPRING,TimePeriod.FirstPeriod,null,null,Arrays.asList(DayOfWeek.SUNDAY,DayOfWeek.MONDAY));
-        Course oopcourse=new Course(4,"oop ","Spring",222,null,Semester.SPRING,TimePeriod.FirstPeriod,null,null,Arrays.asList(DayOfWeek.THURSDAY,DayOfWeek.MONDAY));
-        Course c3=new Course(3,"Science","spring",23,null,Semester.SPRING,TimePeriod.FirstPeriod,null,null,Arrays.asList(DayOfWeek.THURSDAY,DayOfWeek.MONDAY));
-        Course c4=new Course(3,"intro to computer system","winter",24,null,Semester.WINTER,TimePeriod.SecondPeriod,null,null,Arrays.asList(DayOfWeek.FRIDAY));
-        Course test=new Course(3," systems","winter",24,new ArrayList<>(Arrays.asList(c1,oopcourse)),Semester.WINTER,TimePeriod.SecondPeriod,null,null,null);
-        Course c5=new Course(3,"intro to systems","winter",24,new ArrayList<>(Arrays.asList(c1,c4)),Semester.SPRING, TimePeriod.ThirdPeriod,null,null,null);
+        Course c1=new Course(3,"math","spring",22,null,Semester.SPRING,TimePeriod.FirstPeriod,null,Classroom.Room_101,Arrays.asList(DayOfWeek.SUNDAY,DayOfWeek.MONDAY));
+        Course oopcourse=new Course(4,"oop ","Spring",222,null,Semester.SPRING,TimePeriod.FirstPeriod,null,Classroom.UNASSIGNED,Arrays.asList(DayOfWeek.THURSDAY,DayOfWeek.MONDAY));
+        Course c3=new Course(3,"Science","spring",23,null,Semester.SPRING,TimePeriod.FirstPeriod,null,Classroom.UNASSIGNED,Arrays.asList(DayOfWeek.THURSDAY,DayOfWeek.MONDAY));
+        Course c4=new Course(3,"intro to computer system","winter",24,null,Semester.WINTER,TimePeriod.SecondPeriod,null,Classroom.UNASSIGNED,Arrays.asList(DayOfWeek.FRIDAY));
+        Course test=new Course(3," systems","winter",24,new ArrayList<>(Arrays.asList(c1,oopcourse)),Semester.WINTER,TimePeriod.SecondPeriod,null,Classroom.UNASSIGNED,null);
+        Course c5=new Course(3,"intro to systems","winter",24,new ArrayList<>(Arrays.asList(c1,c4)),Semester.SPRING, TimePeriod.ThirdPeriod,null,Classroom.UNASSIGNED,null);
         Department CS=new Department(1123,"CyberSecuity");
         Department AI=new Department(1123,"AI");
 
@@ -20,12 +20,14 @@ public class Main {
         Student s1=new Student(2,"mohamed","d","2","w",LocalDate.of(2,2,2),2004,CS);
         System.out.println("---------");
         Student s2=new Student(2,"Ahmed","d","2","w",LocalDate.of(2,2,2),2004,AI);
+        Student s4=new Student(2,"Ahmed","d","2","w",LocalDate.of(2,2,2),2004,AI);
         Student s3=new Student(2,"Mona","d","2","w",LocalDate.of(2,2,2),2004,AI);
+        Student s7=new Student(2,"Mona","d","2","w",LocalDate.of(2,2,2),2004,AI);
         Instructor i1=new Instructor(2,"Zaki","tunisia","010023444");
         Instructor i2=new Instructor(2,"Mahmoud","tunisia","010023444");
         //System.out.println("tessssst");
 //        System.out.println("normal assign");
-//        courseManagement cm=new courseManagement();
+      courseManagement cm=new courseManagement();
 //        cm.assignClassRoom(c1,Classroom.hallone);
 //        cm.assignClassRoom(oopcourse,Classroom.hallone);
 //        cm.assignClassRoom(c1,Classroom.hallone);
@@ -112,10 +114,20 @@ public class Main {
 //        System.out.println("AI students"+AI.getStudents_in_department());
 //        System.out.println("CS Students"+CS.getStudents_in_department());
 //        //        s1.enroll(c1);
-////
-       s1.enroll(c1);
-       s1.enroll(oopcourse);
-       s1.enroll(c4);
+        cm.enroll(s4,c1);
+        cm.enroll(s2,c1);
+        cm.enroll(s1,c1);
+        cm.enroll(s3,c1);
+        //s4.enroll(c1);
+        //s3.enroll(c1);
+       //s1.enroll(c1);
+        //s7.enroll(c1);
+       // System.out.println(s2.getEnrolledCourses());
+       //s1.enroll(oopcourse);
+       //s1.enroll(c4);
+        System.out.println(c1.getStudentsInCourse());
+        //System.out.println(c1.getClassroom().getCapacityOfHall());
+
 //        s1.completecourse(c7,Grade.A);
 //        s1.completecourse(c1,Grade.F);
 //        s1.completecourse(c2,Grade.B);

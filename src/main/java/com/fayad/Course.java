@@ -15,12 +15,19 @@ public class Course {
     private TimePeriod timePeriod;
     private Instructor instructor;
     private Classroom classroom;
+    private int studentsInCourse=0;
 
 
     private static List<Course> AvailableCourses=new ArrayList<>();
 
     public Course(int credits, String courseName, String term, int courseCode, ArrayList<Course> preRequisite, Semester semester, TimePeriod timePeriod, Instructor instructor, Classroom classroom,List<DayOfWeek> dayOfWeek)
     {
+        if (classroom == null) {
+            throw new IllegalArgumentException("Classroom cannot be null");
+        }
+        if (courseName == null || courseName.trim().isEmpty()) {
+            throw new IllegalArgumentException("Course name cannot be null or empty");
+        }
         this.preRequisite = preRequisite != null ? preRequisite : new ArrayList<>();
         this.credits=credits;
         this.timePeriod=timePeriod;
@@ -39,6 +46,7 @@ public class Course {
 //        new ArrayList<>() - This is what happens if the condition is FALSE
 //        Creates a new empty ArrayList
         this.dayOfWeek = dayOfWeek != null ? new ArrayList<>(dayOfWeek) : new ArrayList<>();
+        this.studentsInCourse=0;
 
     }
 
@@ -180,6 +188,14 @@ public class Course {
 
     public void setDayOfWeek(ArrayList<DayOfWeek> dayOfWeek) {
         this.dayOfWeek = dayOfWeek;
+    }
+
+    public int getStudentsInCourse() {
+        return studentsInCourse;
+    }
+
+    public void setStudentsInCourse(int studentsInCourse) {
+        this.studentsInCourse = studentsInCourse;
     }
 
     public String toString() {
