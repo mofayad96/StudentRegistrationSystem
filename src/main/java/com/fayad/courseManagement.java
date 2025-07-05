@@ -3,8 +3,8 @@ package com.fayad;
 import java.util.*;
 
 public class courseManagement {
-    private Map<Classroom,List<Course>> coursesinhall=new HashMap<>();
 
+    private Map<Classroom,List<Course>> coursesinhall=new HashMap<>();
     public void enroll(Student student,Course course) {
         boolean missingPrerequisite = false;
         ArrayList<String> missing = new ArrayList<>();
@@ -52,10 +52,8 @@ public class courseManagement {
         coursesinhall.putIfAbsent(classroom,new ArrayList<>());
         List<Course> courseList=coursesinhall.get(classroom);
         for(List<Course> courselist :coursesinhall.values())
-
         {
             for(Course course1:courselist)
-
             {
                 if(course1.equals(course))
                 {
@@ -67,13 +65,9 @@ public class courseManagement {
                 System.out.println("cant held at this hall since another course held here at the same time period : "+course1.getCourseName());
                 return;
                 }
-
             }
         }
         courseList.add(course);
         System.out.println("done");
-
     }
-
-
 }

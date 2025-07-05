@@ -8,7 +8,6 @@ public enum TimePeriod {
     FourthPeriod(LocalTime.of(2,30),LocalTime.of(4,29)),
     FifthPeriod(LocalTime.of(4,30),LocalTime.of(6,30));
 
-
     private final LocalTime startTime;
     private final LocalTime endTime;
 

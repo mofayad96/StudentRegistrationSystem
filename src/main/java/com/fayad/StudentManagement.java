@@ -1,10 +1,12 @@
 package com.fayad;
 
-import java.util.ArrayList;
-import java.util.List;
+
 import java.util.Map;
 
 public class StudentManagement {
+
+
+
     public double CGPA(Student student)
     {
         Map<Course,Grade> attempeted=student.getAttemptedCourses();

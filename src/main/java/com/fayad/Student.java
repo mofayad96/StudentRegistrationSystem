@@ -1,5 +1,4 @@
 package com.fayad;
-import java.util.Collections;
 import java.time.LocalDate;
 import java.util.*;
 public class Student  {
@@ -15,9 +14,11 @@ public class Student  {
     private List<Course> failedCourses;
     private int FinishedHours;
     private Department department;
-    private TimePeriod timePeriod;
-    private double GPA;
-    private Map<Course,Grade> attemptedCourses;//passed + failed
+
+
+    private Map<Course,Grade> attemptedCourses;
+
+    //passed + failed
     public Student(int id, String name, String address, String phoneNum, String semester, LocalDate DateOfBirth, int EnrolledYear,Department department)
     {
         this.semester=semester;
@@ -32,7 +33,9 @@ public class Student  {
         this.id=id;
         this.department = department;
         department.students_in_department.add(this);
+
     }
+
     public int getId() {
         return id;
     }
@@ -40,7 +43,7 @@ public class Student  {
     public void setId(int id) {
         this.id = id;
     }
-
+    
     public String getName() {
         return name;
     }
@@ -138,15 +141,12 @@ public class Student  {
     public void setDateOfBirth(LocalDate dateOfBirth) {
         DateOfBirth = dateOfBirth;
     }
-    public TimePeriod getTimePeriod() {
-        return timePeriod;
-    }
 
-    public void setTimePeriod(TimePeriod timePeriod) {
-        this.timePeriod = timePeriod;
-    }
     @Override
     public String toString() {
         return getName();
     }
+
+
+
 }

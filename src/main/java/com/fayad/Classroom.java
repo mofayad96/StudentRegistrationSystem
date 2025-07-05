@@ -1,7 +1,4 @@
 package com.fayad;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 public enum Classroom {
     Room_101(3),
     Room_102(3),

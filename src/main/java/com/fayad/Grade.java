@@ -13,14 +13,40 @@ public enum Grade {
         this.gpaPoints = gpaPoints;
     }
 
-
     public double getGpaPoints() {
         return gpaPoints;
     }
 
-
     public boolean isPassing() {
         return this != F;
+    }
+
+    public static void switchInEnum(Grade gr)
+    {
+        switch (gr)
+        {
+            case A :
+                System.out.println("nice A");
+                break;
+            case B :
+                System.out.println("nice B");
+                break;
+            case C:
+                System.out.println("nice C");
+                break;
+
+            default:
+                System.out.println("not good");
+                break;
+        }
+    }
+
+    public static void iterateOvervalues()
+    {
+        for(Grade g:Grade.values())
+        {
+            System.out.println(g);
+        }
     }
 
     @Override
